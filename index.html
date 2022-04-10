@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ua">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <link href="https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="icons/paint.png" type="image/png">
+    <link rel="stylesheet" href="style.css">
+    <title>Paint</title>
+<body>
+
+    <main>
+        <canvas id="draw"></canvas>
+        <aside>
+            <div class="title">
+                <img src="icons/paint.png" alt="">
+                <span>PAINT</span>
+            </div>
+            <div class="actions">
+                <a class="btn reset" title="Clear all">
+                    <img src="icons/delete.png" alt="">
+                </a>
+                <a class="btn download" title="Download image">
+                    <img src="icons/download.png" alt="">
+                </a>
+                <a class="btn save" title="Save">
+                    <img src="icons/save.png" alt="">
+                </a>
+                <a class="btn replay" title="Replay">
+                    <img src="icons/repeat.png" alt="">
+                </a>
+                <a href="" download="paint.png" id="download"></a>
+            </div>
+            <label>Choose painter or eraser:</label>
+            <div class="painter-eraser">
+                <a class="btn painter active" title="Painter">
+                    <img src="icons/cursor.png" alt="">
+                </a>
+                <a class="btn eraser" title="Eraser">
+                    <img src="icons/eraser.png" alt="">
+                </a>
+            </div>
+            <label>Choose thickness:</label>
+            <div class="thickness-picker">
+                <input type="range" min="5" max="50" step="5" value="10">
+            </div>
+            <label>Choose color:</label>
+            <div class="color-picker">
+                <input type="color">
+            </div>
+            <label>Used colors:</label>
+            <div class="colors"></div>
+            <div class="result">
+                <label>Result:</label>
+                <span></span>
+            </div>
+        </aside>
+    </main>
+
+    <div id="cursor">
+        <img src="icons/cursor.png" alt="">
+    </div>
+
+    <img src="icons/settings.png" alt="" class="settings">
+    
+    <script src="scripts.js"></script>
+</body>
+</html>

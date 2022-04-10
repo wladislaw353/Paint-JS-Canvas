@@ -1,0 +1,217 @@
+* {
+    margin: 0;
+    padding: 0;
+    outline: none;
+    box-sizing: border-box;
+    font-family: 'Londrina Solid', cursive;
+    font-weight: 300;
+    user-select: none;
+}
+body {
+    overflow: hidden;
+}
+main {
+    display: flex;
+}
+canvas {
+    display: block;
+    cursor: none;
+    overflow: hidden;
+    width: calc(100% - 300px)
+}
+aside {
+    padding: 30px;
+    width: 300px;
+    background: #f1eddc3d;
+    box-shadow: 0px 0px 5px 0px #e6e6e6;
+    overflow: auto;
+    height: 100vh;
+    position: relative;
+}
+input[type="color"] {
+    border: 0;
+    width: 50px;
+    height: 50px;
+    outline: none;
+    cursor: pointer;
+    position: relative;
+    border-radius: 100%;
+    overflow: hidden;
+}
+input[type="color" i]::-webkit-color-swatch-wrapper {
+    padding: 0;
+}
+#cursor {
+    position: fixed;
+    z-index: 999;
+    left: 0px;
+    top: 0px;
+    pointer-events: none;
+}
+.title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.title img {
+    display: block;
+    margin-right: 10px;
+    pointer-events: none;
+}
+.title span {
+    font-size: 45px;
+    background: linear-gradient(203.82deg, #69a9f5 23.15%, #49c44c 45.01%, #f8c71d 82.96%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 400;
+}
+.actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: 30px 0;
+}
+.btn {
+    border-radius: 100%;
+    background: #cebd8247;
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all .3s ease;
+}
+.btn img {
+    display: block;
+    transition: all .3s ease;
+    transform: scale(.8);
+}
+#download {
+    display: none;
+}
+.actions a:nth-child(1):hover {
+    background: #ed6662;
+}
+.actions a:nth-child(2):hover {
+    background: #f8c71d;
+}
+.actions a:nth-child(3):hover {
+    background: #69a9f5;
+}
+.actions a:nth-child(4):hover {
+    background: #48c34a;
+}
+.btn:hover img {
+    transform: scale(.6);
+}
+#tooltip {
+    background: #4950579e;
+    padding: 5px;
+    color: #fff;
+    position: fixed;
+    border-radius: 5px;
+    display: none;
+    left: 0;
+    top: 0;
+}
+.thickness-picker {
+    margin-bottom: 30px;
+}
+.thickness-picker input {
+    width: 100%;
+}
+.color-picker {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+.colors {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-height: 96px;
+    overflow: auto;
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #cebd8247;
+}
+.colors span {
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+    margin: 5px;
+    cursor: pointer;
+    transition: all .3s ease;
+}
+.colors span:hover {
+    transform: scale(.9);
+}
+label {
+    background: linear-gradient(203.82deg, #69a9f5 23.15%, #49c44c 45.01%, #f8c71d 82.96%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+    margin-bottom: 5px;
+}   
+.result {
+    display: flex;
+    align-items: center;
+}
+.result label {
+    margin-bottom: 0;
+}
+.result span {
+    margin-left: 15px;
+    display: block;
+    border-radius: 100%;
+    transition: all .3s ease;
+}
+.painter-eraser {
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: space-evenly;
+}
+.painter-eraser a.active {
+    background: #f8c71d;
+}
+.settings {
+    position: fixed;
+    right: 15px;
+    top: 15px;
+    display: none;
+    animation: rotate 5s linear infinite;
+}
+.settings.active {
+    filter: sepia(1);
+}
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(359deg);
+    }
+}
+
+@media(max-width: 1024px) {
+    canvas {
+        width: 100%
+    }
+    aside {
+        position: fixed;
+        right: 0;
+        transform: translateX(315px);
+        transition: all .3s ease;
+        background: #f1eddcf7;
+    }
+    aside.active {
+        transform: translateX(0);
+    }
+    .settings {
+        display: block;
+    }
+    #cursor {
+        display: none !important;
+    }
+}
